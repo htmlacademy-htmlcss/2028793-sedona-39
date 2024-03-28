@@ -1102,33 +1102,33 @@ body {
   opacity: 0.6;
 }
 
-.control-mark:focus {
-  outline: 3px solid #83b3d3;
+.control-input[type="checkbox"]:focus+.control-mark,
+.control-input[type="radio"]:focus+.control-mark {
+  outline: 3px solid #83B3D3;
 }
 
 .control:active {
   opacity: 0.3;
 }
 
-
 /*Checkbox*/
 
-.control-input[type="checkbox"]:checked + .control-mark::before,
-.control-input[type="checkbox"]:checked + .control-mark::after {
+.control-input[type="checkbox"]:checked+.control-mark::before,
+.control-input[type="checkbox"]:checked+.control-mark::after {
   position: absolute;
   content: "";
   background-color: #3F5E72;
   height: 2px;
 }
 
-.control-input[type="checkbox"]:checked + .control-mark::before {
+.control-input[type="checkbox"]:checked+.control-mark::before {
   transform: rotate(34deg);
   width: 5px;
   top: 11px;
   left: 5px;
 }
 
-.control-input[type="checkbox"]:checked + .control-mark::after {
+.control-input[type="checkbox"]:checked+.control-mark::after {
   transform: rotate(307deg);
   width: 11px;
   top: 9px;
@@ -1137,11 +1137,11 @@ body {
 
 /*Radio*/
 
-.control-input[type="radio"] + .control-mark {
+.control-input[type="radio"]+.control-mark {
   border-radius: 50%;
 }
 
-.control-input[type="radio"]:checked + .control-mark::before {
+.control-input[type="radio"]:checked+.control-mark::before {
   position: absolute;
   top: 5px;
   left: 5px;
@@ -1221,7 +1221,6 @@ body {
   border-color: rgba(0, 0, 0, 0.30);
   color: rgba(0, 0, 0, 0.30);
 }
-
 
 .hotel-list {
   display: grid;
@@ -1397,6 +1396,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(242, 242, 242, 0.8);
+  z-index: 1;
 }
 
 .modal-container-close {
@@ -1447,7 +1447,7 @@ body {
   outline: none;
 }
 
-.modal-close-button:focus {
+.modal-close-button:focus-visible {
   background-color: #E6E6E6;
   outline: 3px solid #83B3D3;
 }
@@ -1499,7 +1499,15 @@ body {
   font-size: 18px;
   line-height: 24px;
   font-weight: 700;
+}
 
+.field-input-wrapper .field:hover {
+  background-color: #E6E6E6;
+}
+
+.field-input-wrapper .field:focus {
+  background-color: #E6E6E6;
+  outline: 3px solid #83B3D3;
 }
 
 .wrapper-adult,
@@ -1554,6 +1562,7 @@ body {
 .adult-number-form,
 .children-number-form {
   padding: 14px 10px;
+  position: relative;
 }
 
 .modul-search {
@@ -1637,7 +1646,6 @@ button.field-input-button:focus svg {
   border-radius: 3px;
 }
 
-
 /* Tooltip */
 .tooltip-container {
   box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 0.15);
@@ -1688,12 +1696,18 @@ button.field-input-button:focus svg {
   display: none;
 }
 
-.tooltip-button:hover + .tooltip-text,
-.tooltip-button:focus + .tooltip-text {
-  display: block;
+.tooltip-button:focus {
+  outline: none;
 }
 
-.tooltip-button:hover + .tooltip-text + .tooltip-arrow-up,
-.tooltip-button:focus + .tooltip-text + .tooltip-arrow-up {
+.tooltip-button:hover+.tooltip-text,
+.tooltip-button:focus+.tooltip-text {
   display: block;
+  outline: none;
+}
+
+.tooltip-button:hover+.tooltip-text+.tooltip-arrow-up,
+.tooltip-button:focus+.tooltip-text+.tooltip-arrow-up {
+  display: block;
+  outline: none;
 }

@@ -1102,14 +1102,14 @@ body {
   opacity: 0.6;
 }
 
-.control-mark:focus {
-  outline: 3px solid #83b3d3;
+.control-input[type="checkbox"]:focus + .control-mark,
+.control-input[type="radio"]:focus + .control-mark {
+  outline: 3px solid #83B3D3;
 }
 
 .control:active {
   opacity: 0.3;
 }
-
 
 /*Checkbox*/
 
@@ -1221,7 +1221,6 @@ body {
   border-color: rgba(0, 0, 0, 0.30);
   color: rgba(0, 0, 0, 0.30);
 }
-
 
 .hotel-list {
   display: grid;
@@ -1447,9 +1446,8 @@ body {
   outline: none;
 }
 
-.modal-close-button:focus {
+.modal-close-button:focus-visible {
   background-color: #E6E6E6;
-  outline: 3px solid #83B3D3;
 }
 
 .modal-close-button:active {
@@ -1499,8 +1497,16 @@ body {
   font-size: 18px;
   line-height: 24px;
   font-weight: 700;
-
 }
+
+.field-input-wrapper .field:hover {
+  background-color: #E6E6E6;
+}
+
+.field-input-wrapper .field:focus {
+  background-color: #E6E6E6;
+  outline: 3px solid #83B3D3;
+ }
 
 .wrapper-adult,
 .wrapper-children {
@@ -1554,6 +1560,7 @@ body {
 .adult-number-form,
 .children-number-form {
   padding: 14px 10px;
+  position: relative;
 }
 
 .modul-search {
@@ -1637,7 +1644,6 @@ button.field-input-button:focus svg {
   border-radius: 3px;
 }
 
-
 /* Tooltip */
 .tooltip-container {
   box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 0.15);
@@ -1688,12 +1694,18 @@ button.field-input-button:focus svg {
   display: none;
 }
 
+.tooltip-button:focus {
+  outline: none;
+}
+
 .tooltip-button:hover + .tooltip-text,
 .tooltip-button:focus + .tooltip-text {
   display: block;
+  outline:none;
 }
 
 .tooltip-button:hover + .tooltip-text + .tooltip-arrow-up,
 .tooltip-button:focus + .tooltip-text + .tooltip-arrow-up {
   display: block;
+  outline: none;
 }
